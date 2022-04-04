@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="game.js"></script>
+    <link rel="stylesheet" href="styles.css" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body onkeypress="myFunction(event)">
+    <div class="container">
+      <div class="child">
+        <h1>Question Game</h1>
+        <p id="Question">Question 1:</p>
+        <button
+          class="Button"
+          onclick="Correct_Wrong(this.value,this.id);setTimeout(next,1500)"
+          value=""
+          id="Answner_1"
+        >
+          Answer 1
+        </button>
+        <button
+          class="Button"
+          onclick="Correct_Wrong(this.value,this.id);setTimeout(next,1500)"
+          value=""
+          id="Answner_2"
+        >
+          Answer 2
+        </button>
+        <button
+          class="Button"
+          class="Button"
+          onclick="Correct_Wrong(this.value,this.id);setTimeout(next,1500)"
+          value=""
+          id="Answner_3"
+        >
+          Answer 3
+        </button>
+        <button
+          class="Button"
+          onclick="Correct_Wrong(this.value,this.id);setTimeout(next,1500)"
+          value=""
+          id="Answner_4"
+        >
+          Answer 4
+        </button>
+        <p id="Correct_msg"></p>
+      </div>
+    </div>
+  </body>
+</html>

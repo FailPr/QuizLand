@@ -1,0 +1,54 @@
+button{
+    width: max(200px,200px);
+    height: max(55px,70px);
+    padding: 10px;
+    margin: 10px;
+    border: 2px solid black;
+    border-radius: 5px;
+    background-color: #118AB2;
+    color: white;
+    cursor: pointer;
+    font-size: medium;
+    font-family:'Times New Roman', Times, serif;
+}
+button:hover
+{
+    background-color: #1d82a3;
+    transition: 0.3s;
+}
+button:disabled
+{
+    background-color: #EF476F;
+    color: black;
+    transition: 0.3s;
+}
+.CorrectButton
+{
+    width: max(200px,200px);
+    height: max(55px,70px);
+    padding: 10px;
+    margin: 10px;
+    border: 2px solid black;
+    border-radius: 5px;
+    background-color: #06D6A0;
+    color: white;
+    cursor: pointer;
+    font-size: medium;
+    font-family:'Times New Roman', Times, serif;
+}
+.container {
+    font-family: arial;
+    font-size: 24px;
+    margin: 25px;
+    display: flex;
+    justify-content: center;
+    
+  }
+  
+  .child {
+    text-align: center;
+  }
+  html
+  {
+      background-color: #dddddd;
+  }
