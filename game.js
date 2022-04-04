@@ -108,3 +108,27 @@ function enable_buttons()
     nodeList[i].disabled=false;
   }
 }
+
+function buttons(event) {
+  var x = event.charCode;
+  if(x==49)
+  {
+    x=document.getElementById('Answer_1').value;
+    Answer_Check(x);
+  }
+  if(x==50)
+  {
+    x=document.getElementById('Answer_2').value;
+    Answer_Check(x);
+  }
+  if(x==51)
+  {
+    x=document.getElementById('Answer_3').value;
+    Answer_Check(x);
+  }
+  if(x==52)
+  {
+    x=document.getElementById('Answer_4').value;
+    Answer_Check(x);
+  }
+}

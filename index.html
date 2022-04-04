@@ -3,20 +3,57 @@
   <head>
     <script src="game.js"></script>
     <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
-  <body">
+  <body onkeypress="buttons(event)">
+    <div id="top" class="container">
+      <img src="quiz.png" alt="Italian Trulli" />
+    </div>
     <div class="container">
       <div class="child">
         <h1>QuizLand</h1>
-        <p class="p" id="Question">Πως ονομάστικε η τουρκική εισβόλη του 1974 στην Κύπρο;</p>
-        <button class="Mybutton" id="Answer_1"  value="" onclick="Answer_Check(this.value)" >Αττίλας</button>
-        <button class="Mybutton" id="Answer_2"  value="" onclick="Answer_Check(this.value)" >Βατερλό</button>
-        <button class="Mybutton" id="Answer_3"  value="" onclick="Answer_Check(this.value)" >Αννίβας</button>
-        <button class="Mybutton" id="Answer_4"  value="" onclick="Answer_Check(this.value)" >Πέτα</button>
+        <p class="p" id="Question">
+          Πως ονομάστικε η τουρκική εισβόλη του 1974 στην Κύπρο;
+        </p>
+        <button
+          class="Mybutton"
+          id="Answer_1"
+          value=""
+          onclick="Answer_Check(this.value)"
+        >
+          Αττίλας
+        </button>
+        <button
+          class="Mybutton"
+          id="Answer_2"
+          value=""
+          onclick="Answer_Check(this.value)"
+        >
+          Βατερλό
+        </button>
+        <button
+          class="Mybutton"
+          id="Answer_3"
+          value=""
+          onclick="Answer_Check(this.value)"
+        >
+          Αννίβας
+        </button>
+        <button
+          class="Mybutton"
+          id="Answer_4"
+          value=""
+          onclick="Answer_Check(this.value)"
+        >
+          Πέτα
+        </button>
       </div>
     </div>
   </body>
