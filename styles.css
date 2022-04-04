@@ -1,54 +1,53 @@
-button{
-    width: max(200px,200px);
-    height: max(55px,70px);
-    padding: 10px;
-    margin: 10px;
-    border: 2px solid black;
-    border-radius: 5px;
-    background-color: #118AB2;
-    color: white;
-    cursor: pointer;
-    font-size: medium;
-    font-family:'Times New Roman', Times, serif;
+.container {
+  font-family: arial;
+  font-size: 24px;
+  margin: 25px;
+  display: flex;
+  justify-content: center;
+}
+.child {
+  text-align: center;
+}
+html {
+  background-color: #dddddd;
+}
+button {
+  padding: 20px;
+  border: 2px solid black;
+  border-radius: 5px;
+  margin: 10px;
+  width: max(200px, 200px);
+  background: #29a6ff;
+  height: max(10px, 75px);
+  transition: 0.5s;
 }
 button:hover
 {
-    background-color: #1d82a3;
-    transition: 0.3s;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: 0.5s;
 }
-button:disabled
+.button_wrong
 {
-    background-color: #EF476F;
-    color: black;
-    transition: 0.3s;
-}
-.CorrectButton
-{
-    width: max(200px,200px);
-    height: max(55px,70px);
-    padding: 10px;
-    margin: 10px;
+    cursor: not-allowed;
+    padding: 20px;
     border: 2px solid black;
     border-radius: 5px;
-    background-color: #06D6A0;
-    color: white;
-    cursor: pointer;
-    font-size: medium;
-    font-family:'Times New Roman', Times, serif;
+    margin: 10px;
+    width: max(200px, 200px);
+    background: #ff0e4a;
+    height: max(10px, 75px);
+    transition: 0.5s;
 }
-.container {
-    font-family: arial;
-    font-size: 24px;
-    margin: 25px;
-    display: flex;
-    justify-content: center;
-    
-  }
-  
-  .child {
-    text-align: center;
-  }
-  html
-  {
-      background-color: #dddddd;
-  }
+.button_correct
+{
+    cursor: not-allowed;
+    padding: 20px;
+    border: 2px solid black;
+    border-radius: 5px;
+    margin: 10px;
+    width: max(200px, 200px);
+    background: #00d86c;
+    height: max(10px, 75px);
+    transition: 0.5s;
+}

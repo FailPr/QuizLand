@@ -8,45 +8,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
-  <body onkeypress="myFunction(event)">
+  <body">
     <div class="container">
       <div class="child">
-        <h1>Question Game</h1>
-        <p id="Question">Question 1:</p>
-        <button
-          class="Button"
-          onclick="Correct_Wrong(this.value,this.id);setTimeout(next,1500)"
-          value=""
-          id="Answner_1"
-        >
-          Answer 1
-        </button>
-        <button
-          class="Button"
-          onclick="Correct_Wrong(this.value,this.id);setTimeout(next,1500)"
-          value=""
-          id="Answner_2"
-        >
-          Answer 2
-        </button>
-        <button
-          class="Button"
-          class="Button"
-          onclick="Correct_Wrong(this.value,this.id);setTimeout(next,1500)"
-          value=""
-          id="Answner_3"
-        >
-          Answer 3
-        </button>
-        <button
-          class="Button"
-          onclick="Correct_Wrong(this.value,this.id);setTimeout(next,1500)"
-          value=""
-          id="Answner_4"
-        >
-          Answer 4
-        </button>
-        <p id="Correct_msg"></p>
+        <h1>QuizLand</h1>
+        <p class="p" id="Question">Πως ονομάστικε η τουρκική εισβόλη του 1974 στην Κύπρο;</p>
+        <button class="Mybutton" id="Answer_1"  value="" onclick="Answer_Check(this.value)" >Αττίλας</button>
+        <button class="Mybutton" id="Answer_2"  value="" onclick="Answer_Check(this.value)" >Βατερλό</button>
+        <button class="Mybutton" id="Answer_3"  value="" onclick="Answer_Check(this.value)" >Αννίβας</button>
+        <button class="Mybutton" id="Answer_4"  value="" onclick="Answer_Check(this.value)" >Πέτα</button>
       </div>
     </div>
   </body>

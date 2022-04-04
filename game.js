@@ -17,38 +17,6 @@ function Question_Builder(
   this.Correct = Correct;
 }
 
-function myFunction(event) {
-  var x = event.charCode;
-  if(x == 49)
-  {
-    x=document.getElementById("Answner_1").value;
-    y=document.getElementById("Answner_1").id;
-    Correct_Wrong(x,y);
-    setTimeout(next,1500);
-  }
-  if(x == 50)
-  {
-    x=document.getElementById("Answner_2").value;
-    y=document.getElementById("Answner_2").id;
-    Correct_Wrong(x,y);
-    setTimeout(next,1500);
-  }
-  if(x == 51)
-  {
-    x=document.getElementById("Answner_3").value;
-    y=document.getElementById("Answner_3").id;
-    Correct_Wrong(x,y);
-    setTimeout(next,1500);
-  }
-  if(x == 52)
-  {
-    x=document.getElementById("Answner_4").value;
-    y=document.getElementById("Answner_4").id;
-    Correct_Wrong(x,y);
-    setTimeout(next,1500);
-  }
-}
-
 Questions.push(
   new Question_Builder(
     Question_Builder.length,
@@ -83,70 +51,55 @@ Questions.push(
   )
 );
 
-window.onload = function () {
-  next();
-};
-function next() {
-    enable();
-    document.getElementById("Correct_msg").innerHTML="";
-  var i = Math.floor(Math.random() * Questions.length);
-  document.getElementById("Question").innerHTML = Questions[i].Question;
-
-  document.getElementById("Answner_1").innerHTML = Questions[i].Answer_1;
-  document.getElementById("Answner_1").value =
-    document.getElementById("Answner_1").innerHTML;
-
-  document.getElementById("Answner_2").innerHTML = Questions[i].Answer_2;
-  document.getElementById("Answner_2").value =
-    document.getElementById("Answner_2").innerHTML;
-
-  document.getElementById("Answner_3").innerHTML = Questions[i].Answer_3;
-  document.getElementById("Answner_3").value =
-    document.getElementById("Answner_3").innerHTML;
-
-  document.getElementById("Answner_4").innerHTML = Questions[i].Answer_4;
-  document.getElementById("Answner_4").value =
-    document.getElementById("Answner_4").innerHTML;
+window.onload=function()
+{
+  nextQuestion();
 }
 
-function Correct_Wrong(Answer,clicked_btn) {
-  var found = Questions.find((e) => e.Correct === Answer);
-  if (found) {
-    if (found.Correct == Answer) {
-        document.getElementById("Correct_msg").innerHTML="Correct";
-    }
-  } else {
-    document.getElementById("Correct_msg").innerHTML="Wrong";
+function Answer_Check(Answer)
+{
+  find = document.getElementById('Question').innerHTML;
+  const index = Questions.map(object => object.Question).indexOf(find);
+  onClick(index);
+  setTimeout(nextQuestion,1500);
+}
+
+function nextQuestion()
+{
+  const random_question = Math.floor(Math.random()*Questions.length);
+  document.getElementById("Question").innerHTML=Questions[random_question].Question;
+  document.getElementById("Answer_1").innerHTML=Questions[random_question].Answer_1;
+  document.getElementById("Answer_1").value=Questions[random_question].Answer_1;
+  document.getElementById("Answer_2").innerHTML=Questions[random_question].Answer_2;
+  document.getElementById("Answer_2").value=Questions[random_question].Answer_2;
+  document.getElementById("Answer_3").innerHTML=Questions[random_question].Answer_3;
+  document.getElementById("Answer_3").value=Questions[random_question].Answer_3;
+  document.getElementById("Answer_4").innerHTML=Questions[random_question].Answer_4;
+  document.getElementById("Answer_4").value=Questions[random_question].Answer_4;
+  const nodeList = document.querySelectorAll(".Mybutton");
+  for (let i = 0; i < nodeList.length; i++)
+  {
+    nodeList[i].style.backgroundColor="#29a6ff";
+    nodeList[i].style.cursor="pointer";
+    nodeList[i].disabled=false;
   }
-  disable(Answer);
 }
 
-function disable(Answer) 
+function onClick(Answer)
 {
-    const button = document.querySelectorAll('button');
-    if(document.getElementById("Correct_msg").innerHTML=="Wrong")
+  const nodeList = document.querySelectorAll(".Mybutton");
+  for (let i = 0; i < nodeList.length; i++) 
+  {
+    nodeList[i].disabled=true;
+    if(nodeList[i].value==Questions[Answer].Correct)
     {
-        for (let i = 0; i < button.length; i++) 
-        {
-            button[i].disabled=true;
-        }
+      nodeList[i].style.backgroundColor = "#00d86c";
+      nodeList[i].style.cursor="not-allowed";
     }
-    if(document.getElementById("Correct_msg").innerHTML=="Correct")
+    else
     {
-        for (let i = 0; i < button.length; i++) 
-        {
-            if(button[i].value!=Answer)
-            {
-                button[i].disabled=true;
-            }
-        }
+      nodeList[i].style.backgroundColor="#ff0e4a";
+      nodeList[i].style.cursor="not-allowed";
     }
-}
-
-function enable()
-{
-    const button = document.querySelectorAll('button');
-    for (let i = 0; i < button.length; i++) {
-      button[i].disabled = false;
-    } 
+  }
 }
