@@ -51,3 +51,23 @@ button:hover
     height: max(10px, 75px);
     transition: 0.5s;
 }
+div#top_bar {
+    background-color: #dddddd;
+    height: max(40px,40px);
+    border: 2px solid black;
+    border-radius: 10px;
+}
+div#top_bar {
+    background-color: #dddddd;
+    height: max(74px,40px);
+    width: max(900px,900px);
+    border: 2px solid black;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+img#myImage {
+    width: auto;
+
+    height: auto;
+}
