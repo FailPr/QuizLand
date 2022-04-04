@@ -17,7 +17,7 @@ button {
   border-radius: 5px;
   margin: 10px;
   width: max(200px, 200px);
-  background: #29a6ff;
+  background: #00b4d8;
   height: max(10px, 75px);
   transition: 0.5s;
 }
@@ -47,7 +47,7 @@ button:hover
     border-radius: 5px;
     margin: 10px;
     width: max(200px, 200px);
-    background: #00d86c;
+    background: #06D6A0;
     height: max(10px, 75px);
     transition: 0.5s;
 }

@@ -60,7 +60,7 @@ function Answer_Check(Answer)
 {
   find = document.getElementById('Question').innerHTML;
   const index = Questions.map(object => object.Question).indexOf(find);
-  onClick(index);
+  disable_buttons(index);
   setTimeout(nextQuestion,1500);
 }
 
@@ -76,30 +76,35 @@ function nextQuestion()
   document.getElementById("Answer_3").value=Questions[random_question].Answer_3;
   document.getElementById("Answer_4").innerHTML=Questions[random_question].Answer_4;
   document.getElementById("Answer_4").value=Questions[random_question].Answer_4;
-  const nodeList = document.querySelectorAll(".Mybutton");
-  for (let i = 0; i < nodeList.length; i++)
-  {
-    nodeList[i].style.backgroundColor="#29a6ff";
-    nodeList[i].style.cursor="pointer";
-    nodeList[i].disabled=false;
-  }
+  enable_buttons();
 }
 
-function onClick(Answer)
+function disable_buttons(Answer)
 {
   const nodeList = document.querySelectorAll(".Mybutton");
   for (let i = 0; i < nodeList.length; i++) 
   {
-    nodeList[i].disabled=true;
     if(nodeList[i].value==Questions[Answer].Correct)
     {
-      nodeList[i].style.backgroundColor = "#00d86c";
+      nodeList[i].style.backgroundColor = "#06D6A0";
       nodeList[i].style.cursor="not-allowed";
     }
     else
     {
-      nodeList[i].style.backgroundColor="#ff0e4a";
+      nodeList[i].style.backgroundColor="#EF476F";
       nodeList[i].style.cursor="not-allowed";
     }
+    nodeList[i].disabled=true;
+  }
+}
+
+function enable_buttons()
+{
+  const nodeList = document.querySelectorAll(".Mybutton");
+  for (let i = 0; i < nodeList.length; i++)
+  {
+    nodeList[i].style.backgroundColor="#00b4d8";
+    nodeList[i].style.cursor="pointer";
+    nodeList[i].disabled=false;
   }
 }
