@@ -39,6 +39,7 @@ button:hover
     height: max(10px, 75px);
     transition: 0.5s;
 }
+
 .button_correct
 {
     cursor: not-allowed;
@@ -85,6 +86,7 @@ div#Top_Div {
 img {
   width: max(20px, 30px);
   height: max(20px, 30px);
+  padding-bottom: 3px;
 }
 img#top_image {
   width: max(40px, 100px);

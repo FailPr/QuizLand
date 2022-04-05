@@ -16,6 +16,7 @@ function Question_Builder(
   this.Answer_4 = Answer_4;
   this.Correct = Correct;
 }
+var stats = {correct_counter:0, wrong_counter:0, readLater_counter:0};
 
 Questions.push(
   new Question_Builder(
@@ -60,6 +61,7 @@ function Answer_Check(Answer)
 {
   find = document.getElementById('Question').innerHTML;
   const index = Questions.map(object => object.Question).indexOf(find);
+  check_stats(index,Answer);
   disable_buttons(index);
   setTimeout(nextQuestion,1500);
 }
@@ -106,6 +108,25 @@ function enable_buttons()
     nodeList[i].style.backgroundColor="#00b4d8";
     nodeList[i].style.cursor="pointer";
     nodeList[i].disabled=false;
+  }
+}
+
+function check_stats(index,answer)
+{
+  if(Questions[index].Correct==answer)
+  {
+    stats.correct_counter+=1;
+    document.getElementById('correct_counter').innerHTML=stats.correct_counter;
+  }
+  else if(index==null||answer==null)
+  {
+    stats.readLater_counter+=1;
+    document.getElementById('read_later_counter').innerHTML=stats.readLater_counter;
+  }
+  else
+  {
+    stats.wrong_counter+=1;
+    document.getElementById('wrong_counter').innerHTML=stats.wrong_counter;
   }
 }
 
