@@ -2,7 +2,6 @@
 <html lang="en">
   <head>
     <script src="scripts/game.js"></script>
-    <link rel="stylesheet" href="styles.css" />
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
@@ -11,32 +10,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles/styles.css" />
-    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <title>QuizLand</title>
   </head>
   <body onkeypress="buttons(event)">
     <div id="top" class="container">
-      <img id="top_image" src="src/images/quiz.png" alt="Italian Trulli" />
+      <img id="top_image" src="src/quiz.png" alt="Italian Trulli" />
     </div>
     <div class="container">
       <div class="child">
         <h1>QuizLand</h1>
-        <section>
-          <div id="Top_Div">
-            <img src="src/images/accept.png" alt="Italian Trulli" />
-            <p id="correct_counter">0</p>
-          </div>
-          <div id="Top_Div">
-            <img src="src/images/cancel.png" alt="Italian Trulli" />
-            <p id="wrong_counter">0</p>
-          </div>
-          <div id="Top_Div">
-            <img src="src/images/light-bulb.png" alt="Italian Trulli" />
-            <p id="read_later_counter">0</p>
-          </div>
-        </section>
         <p class="p" id="Question">
           Πως ονομάστικε η τουρκική εισβόλη του 1974 στην Κύπρο;
         </p>
+        <div id="read_later_div" class="container">
+          <button id="read_later_btn" onclick="check_stats(null,null)">
+            <img
+              class="animate__animated animate__swing animate__delay-1s animate__infinite"
+              id="read_later_img"
+              src="src/know_how.png"
+              alt="If you don't know this Question, click here to add this question to read later list"
+            />
+          </button>
+        </div>
         <button
           class="Mybutton"
           id="Answer_1"
@@ -69,6 +68,20 @@
         >
           Πέτα
         </button>
+        <section>
+          <div id="Top_Div">
+            <img src="src/accept.png" alt="Italian Trulli" />
+            <p id="correct_counter">0</p>
+          </div>
+          <div id="Top_Div">
+            <img src="src/cancel.png" alt="Italian Trulli" />
+            <p id="wrong_counter">0</p>
+          </div>
+          <div id="Top_Div">
+            <img src="src/light-bulb.png" alt="Italian Trulli" />
+            <p id="read_later_counter">0</p>
+          </div>
+        </section>
       </div>
     </div>
   </body>

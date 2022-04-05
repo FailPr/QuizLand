@@ -113,21 +113,24 @@ function enable_buttons()
 
 function check_stats(index,answer)
 {
-  if(Questions[index].Correct==answer)
-  {
-    stats.correct_counter+=1;
-    document.getElementById('correct_counter').innerHTML=stats.correct_counter;
-  }
-  else if(index==null||answer==null)
+  if(index==null||answer==null)
   {
     stats.readLater_counter+=1;
     document.getElementById('read_later_counter').innerHTML=stats.readLater_counter;
+    nextQuestion();
+  }
+  else if(Questions[index].Correct==answer)
+  {
+    stats.correct_counter+=1;
+    document.getElementById('correct_counter').innerHTML=stats.correct_counter;
   }
   else
   {
     stats.wrong_counter+=1;
     document.getElementById('wrong_counter').innerHTML=stats.wrong_counter;
+
   }
+
 }
 
 function buttons(event) {

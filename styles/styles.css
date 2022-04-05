@@ -78,7 +78,7 @@ section {
 }
 div#Top_Div {
   display: grid;
-  padding: 15px;
+  padding: 5px;
   margin: 10px;
   text-align: center;
   font-size: 16px;
@@ -95,4 +95,20 @@ img#top_image {
 }
 h1 {
   font-size: 40px;
+}
+button#read_later_btn {
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  padding: 4px;
+  background-color: transparent;
+  border: none;
+}
+div#read_later_div {
+  margin: 0px;
+}
+img#read_later_img {
+  animation-duration: 8s;
 }
