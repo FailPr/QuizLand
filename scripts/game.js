@@ -78,7 +78,16 @@ function nextQuestion()
   document.getElementById("Answer_3").value=Questions[random_question].Answer_3;
   document.getElementById("Answer_4").innerHTML=Questions[random_question].Answer_4;
   document.getElementById("Answer_4").value=Questions[random_question].Answer_4;
+  document.getElementById("correct_img").className="";
+  document.getElementById("wrong_img").className = "";
+  setTimeout(wait_for_readlater_animation,1000);
+  
   enable_buttons();
+}
+
+function wait_for_readlater_animation()
+{
+  document.getElementById("read_later_stats_img").className = "";
 }
 
 function disable_buttons(Answer)
@@ -117,18 +126,20 @@ function check_stats(index,answer)
   {
     stats.readLater_counter+=1;
     document.getElementById('read_later_counter').innerHTML=stats.readLater_counter;
+    document.getElementById("read_later_stats_img").className = "animate__animated animate__heartBeat";
     nextQuestion();
   }
   else if(Questions[index].Correct==answer)
   {
     stats.correct_counter+=1;
     document.getElementById('correct_counter').innerHTML=stats.correct_counter;
+    document.getElementById("correct_img").className = "animate__animated animate__tada";
   }
   else
   {
     stats.wrong_counter+=1;
     document.getElementById('wrong_counter').innerHTML=stats.wrong_counter;
-
+    document.getElementById("wrong_img").className = "animate__animated animate__headShake";
   }
 
 }
