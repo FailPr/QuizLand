@@ -19,13 +19,15 @@ button {
   width: max(200px, 200px);
   background: #00b4d8;
   height: max(10px, 75px);
-  transition: 0.5s;
+  transition: 0.1s;
 }
 button:hover
 {
+    width: max(200px, 205px);
+    height: max(10px, 80px);
     cursor: pointer;
     border-radius: 10px;
-    transition: 0.5s;
+    transition: 0.1s;
 }
 .button_wrong
 {
