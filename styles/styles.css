@@ -128,19 +128,19 @@ img#read_later_img {
 }
 ul.c
 {
-  list-style-image: url('C:/Users/User/Desktop/001/src/Correct_Ul.png');
+  list-style-image: url('../src/Correct_Ul.png');
   font-size: 15px;
   text-align: left;
 }
 ul.w
 {
-  list-style-image: url('C:/Users/User/Desktop/001/src/Wrong_Ul.png');
+  list-style-image: url('../src/Wrong_Ul.png');
   font-size: 15px;
   text-align: left;
 }
 ul.r
 {
-  list-style-image: url('C:/Users/User/Desktop/001/src/Read_Lader_UI.png');
+  list-style-image: url('../src/Read_Lader_UI.png');
   font-size: 15px;
   text-align: left;
 }
