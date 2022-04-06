@@ -84,7 +84,7 @@ div#Top_Div {
   margin: 10px;
   text-align: center;
   font-size: 16px;
-}
+cursor: pointer;transition: 0.5s;}
 img {
   width: max(20px, 30px);
   height: max(20px, 30px);
@@ -113,4 +113,44 @@ div#read_later_div {
 }
 img#read_later_img {
   animation-duration: 8s;
+}
+.stats_div_image:hover
+{
+  width: max(20px, 35px);
+  height: max(20px, 35px);
+  transition: 0.5s;
+}
+.stats_div_image
+{
+  width: max(20px, 30px);
+  height: max(20px, 30px);
+  transition: 0.5s;
+}
+ul.c
+{
+  list-style-image: url('C:/Users/User/Desktop/001/src/Correct_Ul.png');
+  font-size: 15px;
+  text-align: left;
+}
+ul.w
+{
+  list-style-image: url('C:/Users/User/Desktop/001/src/Wrong_Ul.png');
+  font-size: 15px;
+  text-align: left;
+}
+ul.r
+{
+  list-style-image: url('C:/Users/User/Desktop/001/src/Read_Lader_UI.png');
+  font-size: 15px;
+  text-align: left;
+}
+li {
+  padding: 10px;
+  margin: 10px;
+  border: 2px solid black;
+  border-radius: 10px;
+}
+img#close_stats {
+    display: none;
+    cursor: pointer;
 }

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <link rel="icon" href="src/quiz.png" />
     <script src="scripts/game.js"></script>
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
@@ -18,7 +19,7 @@
   </head>
   <body onkeypress="buttons(event)">
     <div id="top" class="container">
-      <img id="top_image" src="src/quiz.png" alt="Italian Trulli" />
+      <img id="top_image" src="src/quiz.png" alt="Welcome to QuizLand" />
     </div>
     <div class="container">
       <div class="child">
@@ -69,23 +70,46 @@
           Πέτα
         </button>
         <section>
-          <div id="Top_Div">
-            <img id="correct_img" src="src/accept.png" alt="Italian Trulli" />
+          <div id="Top_Div" class="stas_div" onclick="stats_buttons('correct')">
+            <img
+              title="Count your correct answerd questions"
+              id="correct_img"
+              src="src/accept.png"
+              alt="Count your correct answerd questions"
+            />
             <p id="correct_counter">0</p>
           </div>
-          <div id="Top_Div">
-            <img id="wrong_img" src="src/cancel.png" alt="Italian Trulli" />
+          <div id="Top_Div" class="stas_div" onclick="stats_buttons('wrong')">
+            <img
+              title="Click here to see all wrong quesions"
+              id="wrong_img"
+              src="src/cancel.png"
+              alt="Click here to see all wrong quesionsi"
+            />
             <p id="wrong_counter">0</p>
           </div>
-          <div id="Top_Div">
+          <div
+            id="Top_Div"
+            class="stas_div"
+            onclick="stats_buttons('read_later')"
+          >
             <img
+              class="stats_div_image"
               id="read_later_stats_img"
+              title="Click here to see all read later quesions"
               src="src/light-bulb.png"
-              alt="Italian Trulli"
+              alt="Count your correct answerd questions"
             />
             <p id="read_later_counter">0</p>
           </div>
         </section>
+      </div>
+    </div>
+    <div class="container">
+      <div class="child">
+        <img id="close_stats" src="src/close.png"></img>
+        <h1 id="Stats_Header"></h1>
+        <ul id="stats_show"></ul>
       </div>
     </div>
   </body>

@@ -1,4 +1,11 @@
 var Questions = [];
+var Questions_Stats_Counter=[];
+function Questions_Stats(Questions,Answer,checker)
+{
+  this.Questions=Questions;
+  this.Answer=Answer;
+  this.checker=checker;
+}
 function Question_Builder(
   id,
   Question,
@@ -78,8 +85,8 @@ function nextQuestion()
   document.getElementById("Answer_3").value=Questions[random_question].Answer_3;
   document.getElementById("Answer_4").innerHTML=Questions[random_question].Answer_4;
   document.getElementById("Answer_4").value=Questions[random_question].Answer_4;
-  document.getElementById("correct_img").className="";
-  document.getElementById("wrong_img").className = "";
+  document.getElementById("correct_img").className="stats_div_image";
+  document.getElementById("wrong_img").className = "stats_div_image";
   setTimeout(wait_for_readlater_animation,1000);
   
   enable_buttons();
@@ -87,7 +94,7 @@ function nextQuestion()
 
 function wait_for_readlater_animation()
 {
-  document.getElementById("read_later_stats_img").className = "";
+  document.getElementById("read_later_stats_img").className = "stats_div_image";
 }
 
 function disable_buttons(Answer)
@@ -127,6 +134,7 @@ function check_stats(index,answer)
     stats.readLater_counter+=1;
     document.getElementById('read_later_counter').innerHTML=stats.readLater_counter;
     document.getElementById("read_later_stats_img").className = "animate__animated animate__heartBeat";
+    Questions_Stats_Counter.push(new Questions_Stats(document.getElementById("Question").innerHTML,'','read_later'));
     nextQuestion();
   }
   else if(Questions[index].Correct==answer)
@@ -134,14 +142,15 @@ function check_stats(index,answer)
     stats.correct_counter+=1;
     document.getElementById('correct_counter').innerHTML=stats.correct_counter;
     document.getElementById("correct_img").className = "animate__animated animate__tada";
+    Questions_Stats_Counter.push(new Questions_Stats(Questions[index].Question,answer,'correct'));
   }
   else
   {
     stats.wrong_counter+=1;
     document.getElementById('wrong_counter').innerHTML=stats.wrong_counter;
     document.getElementById("wrong_img").className = "animate__animated animate__headShake";
+    Questions_Stats_Counter.push(new Questions_Stats(Questions[index].Question,answer,'wrong'));
   }
-
 }
 
 function buttons(event) {
@@ -165,5 +174,48 @@ function buttons(event) {
   {
     x=document.getElementById('Answer_4').value;
     Answer_Check(x);
+  }
+}
+
+function stats_buttons(button_pressed)
+{
+  document.getElementById('close_stats').style.display="inline";
+  document.getElementById('stats_show').innerHTML="";
+  if(button_pressed=='correct')
+  {
+    document.getElementById('Stats_Header').innerHTML="Correct Answers";
+    for (let i = 0; i < Questions_Stats_Counter.length; i++) {
+      if(Questions_Stats_Counter[i].checker=='correct')
+      {
+
+        document.getElementById('stats_show').className="c";
+        document.getElementById('stats_show').innerHTML+=`<li><b>Question:</b>${Questions_Stats_Counter[i].Questions}<b> Απάντηση:</b>${Questions_Stats_Counter[i].Answer}</li>`;
+      }
+    }
+  }
+  else if(button_pressed=='wrong')
+  {
+    document.getElementById('Stats_Header').innerHTML="Wrong Answers";
+    for (let i = 0; i < Questions_Stats_Counter.length; i++) {
+      if(Questions_Stats_Counter[i].checker=='wrong')
+      {
+        document.getElementById('stats_show').className="w";
+        document.getElementById('stats_show').innerHTML+=`<li><b>Question:</b>${Questions_Stats_Counter[i].Questions} <b>Απάντηση:</b>${Questions_Stats_Counter[i].Answer}</li>`;
+      }
+    }
+  }
+  else
+  {
+    document.getElementById('Stats_Header').innerHTML="Read Later Questions";
+    if(button_pressed=='read_later')
+    {
+      for (let i = 0; i < Questions_Stats_Counter.length; i++) {
+        if(Questions_Stats_Counter[i].checker=='read_later')
+        {
+          document.getElementById('stats_show').className="r";
+          document.getElementById('stats_show').innerHTML+=`<li><b>Question:</b>${Questions_Stats_Counter[i].Questions}</li>`;
+        }
+      }
+    }
   }
 }
