@@ -12,18 +12,19 @@ html {
   background-color: #dddddd;
 }
 button {
-  padding: 20px;
+  /* padding: 20px; */
   border: 2px solid black;
   border-radius: 5px;
   margin: 10px;
-  width: max(200px, 200px);
+  width: max(268px, 200px);
   background: #00b4d8;
   height: max(10px, 75px);
   transition: 0.1s;
-}
+
+display: inline-block;justify-content: center;}
 button:hover
 {
-    width: max(200px, 205px);
+    width: max(200px, 335px);
     height: max(10px, 80px);
     cursor: pointer;
     border-radius: 10px;

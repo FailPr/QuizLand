@@ -28,34 +28,34 @@ var stats = {correct_counter:0, wrong_counter:0, readLater_counter:0};
 Questions.push(
   new Question_Builder(
     Question_Builder.length,
-    "Πως ονομάστικε η τουρκική εισβόλη του 1974 στην Κύπρο;",
-    "Αττίλας",
-    "Βατερλό",
-    "Αννίβας",
-    "Πέτα",
-    "Αττίλας"
+    "What is the longest that an elephant has ever lived?",
+    "17 years",
+    "49 years",
+    "86 years",
+    "142 years",
+    "86 years"
   )
 );
 Questions.push(
   new Question_Builder(
     Question_Builder.length,
-    "Ποιος ήταν ο πρώτος αυτοκράτορας του Βυζαντίου;",
-    "Ο Ιουστινιανός",
-    "Βαλεντινιανός Α΄",
-    "Ο Μέγας Κώνσταντίνος",
-    "Ιουστίνος Α΄",
-    "Ο Μέγας Κώνσταντίνος"
+    "How many rings are on the Olympic flag;",
+    "None",
+    "4",
+    "5",
+    "7",
+    "5"
   )
 );
 Questions.push(
   new Question_Builder(
     Question_Builder.length,
-    "Που έπεσε η πρώτη πυρινική βόμβα;",
-    "Στη Χιροσίμα",
-    "Στο Ναγκασάκι",
-    "Στο Τσερνομπιλ",
-    "Αλαμογκόρντο",
-    "Στη Χιροσίμα"
+    "How did Spider-Man get his powers?",
+    "Military experiment gone awry",
+    "Born with them",
+    " Woke up with them after a strange dream",
+    "Bitten by a radioactive spider",
+    "Bitten by a radioactive spider"
   )
 );
 
@@ -212,7 +212,7 @@ function stats_buttons(button_pressed)
         {
   
           document.getElementById('stats_show').className="c";
-          document.getElementById('stats_show').innerHTML+=`<li><b>Question:</b>${Questions_Stats_Counter[i].Questions}<b> Απάντηση:</b>${Questions_Stats_Counter[i].Answer}</li>`;
+          document.getElementById('stats_show').innerHTML+=`<li><b>Question:</b>${Questions_Stats_Counter[i].Questions}<b> Answer:</b>${Questions_Stats_Counter[i].Answer}</li>`;
         }
       }
     }
@@ -226,26 +226,44 @@ function stats_buttons(button_pressed)
   else if(button_pressed=='wrong')
   {
     document.getElementById('Stats_Header').innerHTML="Wrong Answers";
-    for (let i = 0; i < Questions_Stats_Counter.length; i++) {
-      if(Questions_Stats_Counter[i].checker=='wrong')
-      {
-        document.getElementById('stats_show').className="w";
-        document.getElementById('stats_show').innerHTML+=`<li><b>Question:</b>${Questions_Stats_Counter[i].Questions} <b>Απάντηση:</b>${Questions_Stats_Counter[i].Answer}</li>`;
+    if(Questions_Stats_Counter.length>0)
+    {
+      for (let i = 0; i < Questions_Stats_Counter.length; i++) {
+        if(Questions_Stats_Counter[i].checker=='wrong')
+        {
+          document.getElementById('stats_show').className="w";
+          document.getElementById('stats_show').innerHTML+=`<li><b>Question:</b>${Questions_Stats_Counter[i].Questions} <b> Answer</b>${Questions_Stats_Counter[i].Answer}</li>`;
+        }
       }
     }
+    else
+    {
+      document.getElementById('stats_show').className="w";
+      document.getElementById('stats_show').innerHTML='No Results';
+    }
+
   }
   else
   {
     document.getElementById('Stats_Header').innerHTML="Read Later Questions";
     if(button_pressed=='read_later')
     {
-      for (let i = 0; i < Questions_Stats_Counter.length; i++) {
-        if(Questions_Stats_Counter[i].checker=='read_later')
-        {
-          document.getElementById('stats_show').className="r";
-          document.getElementById('stats_show').innerHTML+=`<li><b>Question:</b>${Questions_Stats_Counter[i].Questions}</li>`;
+      if(Questions_Stats_Counter.length>0)
+      {
+        for (let i = 0; i < Questions_Stats_Counter.length; i++) {
+          if(Questions_Stats_Counter[i].checker=='read_later')
+          {
+            document.getElementById('stats_show').className="r";
+            document.getElementById('stats_show').innerHTML+=`<li><b>Question:</b>${Questions_Stats_Counter[i].Questions}</li>`;
+          }
         }
       }
+      else
+      {
+        document.getElementById('stats_show').className="r";
+        document.getElementById('stats_show').innerHTML='No Results';
+      }
+
     }
   }
 }
