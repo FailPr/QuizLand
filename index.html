@@ -28,7 +28,7 @@
           Πως ονομάστικε η τουρκική εισβόλη του 1974 στην Κύπρο;
         </p>
         <div id="read_later_div" class="container">
-          <button id="read_later_btn" onclick="check_stats(null,null)">
+          <button id="read_later_btn" onclick="check_stats(null,null);auto_refresh_stats()">
             <img
               class="animate__animated animate__swing animate__delay-1s animate__infinite"
               id="read_later_img"
@@ -41,7 +41,7 @@
           class="Mybutton"
           id="Answer_1"
           value=""
-          onclick="Answer_Check(this.value)"
+          onclick="Answer_Check(this.value);auto_refresh_stats()"
         >
           Αττίλας
         </button>
@@ -49,7 +49,7 @@
           class="Mybutton"
           id="Answer_2"
           value=""
-          onclick="Answer_Check(this.value)"
+          onclick="Answer_Check(this.value);auto_refresh_stats()"
         >
           Βατερλό
         </button>
@@ -57,7 +57,7 @@
           class="Mybutton"
           id="Answer_3"
           value=""
-          onclick="Answer_Check(this.value)"
+          onclick="Answer_Check(this.value);auto_refresh_stats()"
         >
           Αννίβας
         </button>
@@ -65,7 +65,7 @@
           class="Mybutton"
           id="Answer_4"
           value=""
-          onclick="Answer_Check(this.value)"
+          onclick="Answer_Check(this.value);auto_refresh_stats()"
         >
           Πέτα
         </button>
@@ -106,8 +106,8 @@
       </div>
     </div>
     <div class="container">
-      <div class="child">
-        <img id="close_stats" src="src/close.png"></img>
+      <div class="child" id="close_stat">
+        <img onclick="close_stat()" id="close_stats" src="src/close.png"></img>
         <h1 id="Stats_Header"></h1>
         <ul id="stats_show"></ul>
       </div>

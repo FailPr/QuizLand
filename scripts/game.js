@@ -176,7 +176,28 @@ function buttons(event) {
     Answer_Check(x);
   }
 }
+function close_stat()
+{
+  document.getElementById('Stats_Header').innerHTML="";
+  document.getElementById('stats_show').innerHTML="";
+  document.getElementById('close_stats').style.display="none";
+}
 
+function auto_refresh_stats()
+{
+  if(document.getElementById('Stats_Header').innerHTML=='Correct Answers')
+  {
+    stats_buttons('correct');
+  }
+  if(document.getElementById('Stats_Header').innerHTML=='Wrong Answers')
+  {
+    stats_buttons('wrong');
+  }
+  if(document.getElementById('Stats_Header').innerHTML=='Read Later Questions')
+  {
+    stats_buttons('read_later');
+  }
+}
 function stats_buttons(button_pressed)
 {
   document.getElementById('close_stats').style.display="inline";
@@ -184,14 +205,23 @@ function stats_buttons(button_pressed)
   if(button_pressed=='correct')
   {
     document.getElementById('Stats_Header').innerHTML="Correct Answers";
-    for (let i = 0; i < Questions_Stats_Counter.length; i++) {
-      if(Questions_Stats_Counter[i].checker=='correct')
-      {
-
-        document.getElementById('stats_show').className="c";
-        document.getElementById('stats_show').innerHTML+=`<li><b>Question:</b>${Questions_Stats_Counter[i].Questions}<b> Απάντηση:</b>${Questions_Stats_Counter[i].Answer}</li>`;
+    if(Questions_Stats_Counter.length>0)
+    {
+      for (let i = 0; i < Questions_Stats_Counter.length; i++) {
+        if(Questions_Stats_Counter[i].checker=='correct')
+        {
+  
+          document.getElementById('stats_show').className="c";
+          document.getElementById('stats_show').innerHTML+=`<li><b>Question:</b>${Questions_Stats_Counter[i].Questions}<b> Απάντηση:</b>${Questions_Stats_Counter[i].Answer}</li>`;
+        }
       }
     }
+    else
+    {
+      document.getElementById('stats_show').className="c";
+      document.getElementById('stats_show').innerHTML='No Results';
+    }
+
   }
   else if(button_pressed=='wrong')
   {
